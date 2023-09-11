@@ -1,0 +1,17 @@
+#!/bin/bash
+
+./clean
+
+python setup.py sdist
+twine upload dist/* --verbose
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+    echo "Deployment to PyPI failed!"
+    exit 1
+fi
+
+echo "Cleaning up..."
+./clean
+echo "Successfully deployed to PyPI!"
+exit 0

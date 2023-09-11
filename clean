@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf dist || true
+rm -rf build || true
+rm -rf *.egg-info || true
